@@ -47,17 +47,13 @@ nav {
 
 .logs {
     border-radius: 15% ;
-    transform: translateY(-100px);
+  
 }
 
 #logs {
     border: 1px dotted;
     background-color: #F9BE02;
     border-radius: 15% ;
-}
-
-#logs:hover {
-    transform: translateY(-100px);
 }
 
 main{
