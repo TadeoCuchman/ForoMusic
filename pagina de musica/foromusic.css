@@ -41,19 +41,34 @@ header {
 nav {
     position: absolute;
     right: 0;
-    z-index: 10;
+    z-index: 2;
     padding: 10px;
+    background-color: #7CDBD5;
+    border-radius: 5px;
 }
 
 .logs {
-    border-radius: 15% ;
-  
+    border-radius: 2px ; 
 }
 
 #logs {
     border: 1px dotted;
     background-color: #F9BE02;
-    border-radius: 15% ;
+    border-radius: 2px ;
+}
+
+nav:hover {
+    border-color: #F9BE02;
+    animation-name: loginAnimado;
+    animation-duration: 0.30s;
+    animation-fill-mode: both;
+}
+
+@keyframes loginAnimado {
+    100% {
+            background-color: #F9BE02;
+    }
+
 }
 
 main{
@@ -143,7 +158,7 @@ aside {
     height: 100%;
     background-color:#F53240 ;
     transition: all 300ms ease-in-out;
-    z-index: 2;
+    z-index: 1;
     border-radius: 2%;
     border: 1px dashed black;
     overflow: hidden;
@@ -181,6 +196,7 @@ footer {
     justify-content:space-around;
     align-content: space-around;
     background-color: #F9BE02 ;    
+    border-top: 1px dashed black;
 }
 
 footer li {
@@ -194,10 +210,11 @@ a {
 }
 
 .popup {
-    position: absolute;
+    position: fixed;
     display: none;
-    height: 100%;
+    min-height: 100%;
     width: 100%;
+    z-index: 3;
     background-color: rgba(0,0,0,0.5);
 }
 
@@ -213,8 +230,8 @@ a {
     padding-top: 10px;
     text-indent: 20px;
     gap: 3px;
-    border: 2px solid black; 
-    border-radius: 5%;  
+    border: 1px solid black; 
+    border-radius: 10px;  
     background-color: #F9BE02 ;
 }
 
