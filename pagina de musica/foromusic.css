@@ -124,7 +124,7 @@ main{
 .nuevoArticulo {
     display: grid;
     background-color: #F9BE02;
-    border-radius: 5% ;
+    border-radius: 5px ;
     width: 60% ;
     margin-left: 20%; 
     gap: 10px;
