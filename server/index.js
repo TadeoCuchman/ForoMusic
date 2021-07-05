@@ -11,7 +11,6 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.use('/users', usuarios)
-
 app.use('/feed', feed)
 
 app.use('*', (req, res) => {
