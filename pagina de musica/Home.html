@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" media="screen" href="./foromusic.css"/>
     <title>Home</title>
+    <link rel="shortcut icon" href="./logo.jpg"> 
 </head>
 <body>
-<nav>
-    <input class="logs" type="email">
-    <input class="logs" type="password">
-    <button id="logs">Log In</button>
+<nav id="nav">
+    <button class='logss'><a href="Register.html">Register!</a></button>
+    <button href="Login.html" class="logss"><a href="Login.html">Login!</a></button>
 </nav>
 <aside class="colapso">
     <span id='flechita'>></span>
@@ -51,6 +51,19 @@
     </ul>
 </footer>
 
+<script>
+const nav = document.getElementById('nav')
+if (localStorage.jwt) {
+    const logOut = '<button id="logout" class="logout">LogOut</button>'
+    nav.innerHTML=''
+    nav.innerHTML= localStorage.alias + logOut
+    const logout = document.getElementById("logout")
+    logout.addEventListener("click", () => {
+        localStorage.removeItem('alias')
+        localStorage.removeItem('jwt')
+    })   
+}
+</script>
 </body>
 
 </html>

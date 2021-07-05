@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" media="screen" href="./foromusic.css"/>
-    <title>Category's</title>
+    <title>Login</title>
     <link rel="shortcut icon" href="./logo.jpg"> 
 </head>
 <body>
 <nav id="nav">
-   <button class='logss'><a hr ef="Register.html">Register!</a></button>
+    <button class='logss'><a href="Register.html">Register!</a></button>
     <button href="Login.html" class="logss"><a href="Login.html">Login!</a></button>
 </nav>
 <aside class="colapso">
@@ -29,25 +29,19 @@
 
 
 <main>
+    <h1>Login</h1>
 
-    <h1>Category's</h1>
-    <select id="select">
-        <option selected></option>
-        <option>rock</option>
-        <option>rap</option>
-        <option>reggae</option>
-    </select>
-
-    
-    
-    <div id="feed">
+    <form method="POST" action="javascript:void(0);" class="forms">
+        <p>Email:</p>
+        <input class="logs" id="mail" type="email" name="mail" placeholder="Enter your Email">
+        <p>Password:</p>
+        <input class="logs" id="password" type="password" name="password" placeholder="Enter your Password">
         
-    </div>
+        <button class="logss" type="sumbit" id="login">Login!</button>
+    </form>
     
-
-    
-
-    
+    <p>Don't you have an account yet? Register to add music to our list!</p>
+    <button class='logss'><a href="Register.html">Register!</a></button>
 
 </main>
 
@@ -59,7 +53,7 @@
     </ul>
 </footer>
 
-<script src="categorys.js"></script>
+<script src="login.js"></script>
 </body>
 
 </html>

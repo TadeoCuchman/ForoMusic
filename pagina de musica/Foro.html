@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOROMUSIC</title>
     <link rel="stylesheet" type="text/css" media="screen" href="./foromusic.css"/>
+    <link rel="shortcut icon" href="./logo.jpg"> 
 </head>
 <body>
-<nav>
-    <input class="logs" type="email">
-    <input class="logs" type="password">
-    <button id="logs">Log In</button>
+<nav id="nav">
+    <button class='logss'><a href="Register.html">Register!</a></button>
+    <button href="Login.html" class="logss"><a href="Login.html">Login!</a></button>
 </nav>
 <aside class="colapso">
-    <span id='flechita'>></span>
+    <span id="flechita">></span>
     <ul>
         <li><a href="#Perfil"> Profile</a></li>
         <li><a href="#Comunidad">Comunity</a></li>
@@ -29,17 +29,19 @@
 
 
 <main>
-    <button id='nuevoArtBoton'>+</button>
-    <div id='feed'>
-        <p>FEED:</p>
-        <div>
-        
-        </div>
+    <button id="nuevoArtBoton">+</button>
+    <button id="delete">-</button>
+    <div id="muestraPost"></div>
+    <h1>FEED:</h1>
+    <div id="feed">
         
     </div>
 
 
     
+    <div id="numeritos" class="numeritos">
+    <div></div>
+    </div>
 
 </main>
 
@@ -52,18 +54,18 @@
 </footer>
 
 <div class='popup'>
-    <form id= 'inputArticulo'>
+    <form method = 'POST' id ='inputArticulo' action = 'javascript:void(0);'>
     <span>Add Your Music:</span> 
-    <input type="text" placeholder="Category" id='cat'>
-    <input type="url" placeholder="Link" id='lin'>
-    <input type="text" placeholder="Album Name" id='alb'>
-    <input type="text" placeholder="Band Name" id='ban'>
-    <input type="text"  placeholder="Descripción" id='des'> 
+    <input type="text" name="categoria" placeholder="Category" id='cat'>
+    <input type="url" name="link" placeholder="Link" id='lin'>
+    <input type="text" name="album" placeholder="Album Name" id='alb'>
+    <input type="text" name="band" placeholder="Band Name" id='ban'>
+    <input type="text"  name="descripcion" placeholder="Descripción" id='des'> 
     <input type="submit" id="submit">
 </form></div>
 
     
-    <script src="foromusic.js"></script>
+    <script src="foro.js"></script>
 </body>
 
 
