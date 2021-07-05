@@ -42,34 +42,68 @@ nav {
     position: absolute;
     right: 0;
     z-index: 2;
-    padding: 10px;
+    padding: 5px;
     background-color: #7CDBD5;
     border-radius: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
 }
 
-.logs {
-    border-radius: 2px ; 
+.forms {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 70px;
+    padding: 15px;
+    border: solid 1px;
+    border-radius: 4px;
 }
 
-#logs {
+.forms p {
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.forms input {
+    width: 100%;
+    margin-bottom: 17px;
+    border-radius: 4px;
+    border-style: none;
+    height: 25px;
+    background-color: rgb(243, 243, 243);
+}
+.logout {
+    border: 1px dotted;
+    background-color: #F9BE02;
+    border-radius: 50% ;
+    margin-right: 13px;
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.logs{
+    width: 90px;
+}
+
+.logss {
     border: 1px dotted;
     background-color: #F9BE02;
     border-radius: 2px ;
+    margin-right: 13px;
+    margin-top: 5px;
+    width: 90px;
+    height: 25px;
+}
+
+a:link, a:visited, a:active {
+    text-decoration:none;
 }
 
 nav:hover {
-    border-color: #F9BE02;
-    animation-name: loginAnimado;
-    animation-duration: 0.30s;
-    animation-fill-mode: both;
+    border-color: #f9be09;
 }
 
-@keyframes loginAnimado {
-    100% {
-            background-color: #F9BE02;
-    }
-
-}
 
 main{
     grid-area: main;
@@ -80,6 +114,9 @@ main{
     padding: 10px;
 }
 
+main h1 {
+    margin-top: 20px;
+}
 
 
 #home {
@@ -109,6 +146,7 @@ main{
 
 
 }
+
 #nuevoArtBoton {
     position: absolute;
     width: 50px;
@@ -118,6 +156,18 @@ main{
     background-color: #F9BE02;
     font-size: 20px;
     margin-top: 10px;
+    right: 2%;  
+}
+
+#delete {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    border: 1px dotted;
+    background-color: #F9BE02;
+    font-size: 20px;
+    margin-top: 70px;
     right: 2%;  
 }
 
@@ -188,7 +238,11 @@ aside ul {
     gap: 100px;
 }
 
+#numeritos button{
+    margin-top: 5px;
+    margin-left: 2px;
 
+}
 
 footer {
     display: grid;
@@ -197,12 +251,13 @@ footer {
     align-content: space-around;
     background-color: #F9BE02 ;    
     border-top: 1px dashed black;
+    margin-bottom: 3px;
 }
 
 footer li {
     display: inline-block;
     padding: 10px;
-    padding-bottom:5px ;
+    padding-bottom:3px ;
 }
 
 a {
