@@ -31,8 +31,8 @@ router.get('/category', (req, res) => {
 
     const filtrados = []
     Posts.forEach((x) => {
-        if (x.category == category)  
-            filtrados.push(x)      
+        if (x.category === category)  
+            filtrados.push(x) 
     })
     res.json({succes: true, message:'Elementos de misma categoria', filtrados})
 })
@@ -46,27 +46,32 @@ router.post('/', verifyToken, (req, res) => {
     }
     else {
     const newPost = {
+        id: Posts[0].id + 1,
         category: req.body.category,
         link: req.body.link,
         album: req.body.album,
         band: req.body.band,
         description: req.body.description,
-        firma: req.body.firma
+        firm: req.body.firm
         }
     Posts.unshift(newPost);
     res.json({success: true, newPost, Posts})
-    }   
+    } 
 })
 
 router.put('/:id', verifyToken, (req, res) => {
-  
+    const postPut = Posts.find((a) => {
+        if (req.body.album === a.album){
+            
+        }
+    })
 })
 
 router.delete('/', verifyToken, (req, res) => {
-    const category = req.query.category;
+
     
 })
 
-const Posts = [];
+const Posts = [{id:0}];
 
 module.exports = router;

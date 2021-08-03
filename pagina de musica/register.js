@@ -30,7 +30,6 @@ register.addEventListener("click", (e) => {
             alert ('Something happens');
         } else {
             alert ('Successfull Register');
-            location.href = 'Login.html'
         }
         })
 })
