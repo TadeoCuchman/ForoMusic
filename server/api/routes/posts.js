@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
 router.get('/npages', (req, res) => {
     const nPages = (Posts.length) / 10
-    const nRedondeado = Math.round(nPages)
+    const nRedondeado = Math.ceil(nPages)
     res.json({ success: true, message: 'Number of pages:', nRedondeado}).status(200)
 })
 
@@ -34,7 +34,7 @@ router.get('/category', (req, res) => {
         if (x.category === category)  
             filtrados.push(x) 
     })
-    res.json({succes: true, message:'Elementos de misma categoria', filtrados})
+    res.json({succes: true, message:'Elementos de misma categoria', filtrados}).status(200)
 })
 
 router.post('/', verifyToken, (req, res) => {
@@ -72,6 +72,11 @@ router.delete('/', verifyToken, (req, res) => {
     
 })
 
-const Posts = [{id:0}];
+const Posts = [{id:0},{ category: 'Rock',    
+    link: 'https://www.youtube.com/watch?v=LSOqHrYXWSY',
+    album: 'Brain Cyrcles',
+    band: 'Radio Moscow',
+    description: 'American rock band, so good.',
+    firm: 'Tadeo' }];
 
 module.exports = router;
