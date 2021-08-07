@@ -1,5 +1,7 @@
 import React from 'react';
 
+// agregar que al click despliegue mas informacion y la posibilidad de agregar comentarios
+
 
 const ListaDePosts = (props) => {
     const posts = props.posts
@@ -8,6 +10,7 @@ const ListaDePosts = (props) => {
         <div id='feed'>
             { posts.map((post) => {
                 return ( <Post 
+                    key = {post.id}
                     category={post.category} 
                     link={post.link}
                     album={post.album}
@@ -26,9 +29,9 @@ const Post = (props) => {
         <div className='nuevoArticulo'>
             <br />
             <p>{props.category}</p>
-            <p>{props.link}</p>
+            <h3>{props.link}</h3>
             <p>{props.album}</p>
-            <h1>{props.band}</h1>
+            <p>{props.band}</p>
             <p>{props.description}</p>
             <p>{props.firm}</p>
             <br />
