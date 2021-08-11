@@ -1,0 +1,15 @@
+
+footer {
+    display: grid;
+    grid-area: footer;
+    justify-content:space-around;
+    align-content: space-around;
+    background-color: #F9BE02 ;    
+    border-top: 1px dashed black;
+  }
+  
+  footer li {
+    display: inline-block;
+    padding: 10px;
+    padding-bottom:3px ;
+  }

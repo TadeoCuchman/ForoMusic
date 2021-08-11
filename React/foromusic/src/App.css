@@ -17,49 +17,23 @@
   background-color: #F53240;     
 }
 
-header {
-  display: grid;
-  grid-area: header;
-  position: relative;
-  min-width: 350px;
-  text-align: center;
-  align-content: center;
-  background-color:#7CDBD5 ;
-  border-bottom: 1px solid black;
+
+a {
+  color:black;
 }
 
-header div {
-  display: grid;
-  height: 100%;
-  width: auto;
-  background-color: #F53240;
-  border-bottom: 1px solid black;
-
-  ;
+a:link, a:visited, a:active {
+  text-decoration:none;
 }
 
 
-#logo {
-  width: 120px;
-  border-radius: 10%;
-  border: 1px solid;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  z-index: 1000;
+button:hover {
+  cursor: pointer;
 }
 
-nav {
-  position: absolute;
-  right: 0;
-  z-index: 2;
-  padding: 5px;
-  background-color: #7CDBD5;
-  border-radius: 5px;
-  margin-top: 5px;
-  margin-right: 5px;
-}
+
+/* forms */
+
 
 .forms {
   max-width: 300px;
@@ -109,47 +83,6 @@ nav {
   height: 25px;
 }
 
-a:link, a:visited, a:active {
-  text-decoration:none;
-}
-
-nav:hover {
-  border-color: #f9be09;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-main {
-  grid-area: main;
-  position: relative;
-  text-align: center;
-  background-color: #02C8A7;  
-}
-
-main h1 {
-  margin-top: 3%;
-}
-
-
-#home {
-  display: grid;
-  gap: 20px;
-  justify-content: center;
-  padding: 10%;
-  margin-top: 20px; 
-}
-
-#feed {
-  display: grid;
-  margin-top: 50px;
-}
-
-#select {
-  background-color: #F9BE02;
-
-}
 
 #getIn {
   width: 40px;
@@ -160,168 +93,6 @@ main h1 {
 
 }
 
-#nuevoArtBoton {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 20%;
-  border: 1px dotted;
-  background-color: #F9BE02;
-  font-size: 20px;
-  margin-top: 10px;
-  right: 2%;  
-}
-
-#delete {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 20%;
-  border: 1px dotted;
-  background-color: #F9BE02;
-  font-size: 20px;
-  margin-top: 70px;
-  right: 2%;  
-}
-
-.popup {
-  position: fixed;
-  min-height: 100vh;
-  width: 100vw;
-  z-index: 3;
-  background-color: #f9bf0278;
-}
-
-#inputArticulo {
-  display: grid;
-  margin-top: 4%;
-  height: 30%;
-  width: 80%;
-  justify-items: center;
-  padding-bottom: 4%;
-  padding-top: 1%;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 10px;
-  border: 1px solid black; 
-  border-radius: 10px;  
-  background-color: #f9bf02f2 ;
-}
-
-#closePopup {
-  width: 25px;
-  height: 25px;
-  margin-left: auto;
-  margin-right: 4%;
-
-}
-
-#inputArticulo input {
-  width: 50%
-}
-
-.nuevoArticulo {
-  display: grid;
-  background-color: #F9BE02;
-  width: 60% ;
-  margin-left: auto;
-  margin-right: auto  ;
-  margin-bottom: 3%;
-  border: 1px solid black; 
-  border-radius: 10px;  
-  overflow: hidden;
-  text-transform: lowercase;
-
-  position:sticky;
-}
-
-.nuevoArticulo p {
-  text-transform: lowercase;
-}
-
-.nuevoArticulo p:first-letter {
-  text-transform: uppercase;
-}
-
-.nuevoArticulo:hover {
-  width: 80%;
-  height: 50vh;
-  z-index: 100;
-  position:sticky;
-  margin-left: 100px;
-}
-
-#descripcion {
-  width: 300px;
-  height: 70px;
-}
-
-
-
-aside { 
-  grid-area: aside;
-  display: grid;
-  position: fixed;
-  width: 40%;
-  transform: translateX(-90%);
-  height: 100%;
-  background-color:#f5323f ;
-  transition: all 300ms ease-in-out;
-  z-index: 1000;
-  border-radius: 2%;
-  border: 1px dashed black;
-  overflow: hidden;
-}
-
-.colapso:hover {
-  transform: translateX(-10px);
-}
-
-#flechita {
-  margin-left: auto;
-  margin-top: 50px;
-  margin-right: 5px;
-  font-size: 20px;
-  font-weight: bold;
-}
-  
-
-aside ul {
-  display: grid;
-  position: absolute;
-  overflow: hidden;
-  margin-left: 40px;
-  margin-top: 30vh;
-  margin-right: auto;
-  list-style: none;
-  gap: 100px;
-}
-
-#numeritos{
-  margin-top: 5px;
-  margin-left: 2px;
-  margin-bottom: 5px;
-
-}
-
-footer {
-  display: grid;
-  grid-area: footer;
-  justify-content:space-around;
-  align-content: space-around;
-  background-color: #F9BE02 ;    
-  border-top: 1px dashed black;
-}
-
-footer li {
-  display: inline-block;
-  padding: 10px;
-  padding-bottom:3px ;
-}
-
-a {
-  color:black;
-}
 
 
 

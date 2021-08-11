@@ -1,0 +1,115 @@
+
+main {
+    grid-area: main;
+    position: relative;
+    text-align: center;
+    background-color: #02C8A7;  
+}
+
+main h1 {
+    margin-top: 3%;
+}
+
+#home {
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    padding: 10%;
+    margin-top: 20px; 
+}
+
+#feed {
+    display: grid;
+    margin-top: 50px;
+}
+
+#nuevoArtBoton {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    border: 1px dotted;
+    background-color: #F9BE02;
+    font-size: 20px;
+    margin-top: 10px;
+    right: 2%;  
+}
+
+#delete {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    border: 1px dotted;
+    background-color: #F9BE02;
+    font-size: 20px;
+    margin-top: 70px;
+    right: 2%;  
+}
+
+
+#inputArticulo input {
+    width: 50%
+}
+
+.nuevoArticulo {
+    display: grid;
+    background-color: #F9BE02;
+    width: 60% ;
+    margin-left: auto;
+    margin-right: auto  ;
+    margin-bottom: 3%;
+    border: 1px solid black; 
+    border-radius: 10px;  
+    overflow: hidden;
+    text-transform: lowercase;
+    position:sticky;
+}
+
+.nuevoArticulo p {
+    text-transform: lowercase;
+}
+
+.nuevoArticulo p:first-letter {
+    text-transform: uppercase;
+}
+
+.nuevoArticuloExpandido {
+    width: 80%;
+    height: 50vh;
+    z-index: 100;
+    position:sticky;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#descripcion {
+    width: 300px;
+    height: 70px;
+}
+
+#numeritos{
+    margin-top: 5px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+
+}
+
+#select {
+    background-color: #F9BE02;
+  
+  }
+
+  /* About Us */
+
+  main p {
+    margin-top: 2%;  
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 15px;
+  }
+
+  main h3 {
+    margin-top: 5%
+  }
