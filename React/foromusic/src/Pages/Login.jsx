@@ -24,9 +24,9 @@ const Login = (props) => {
             return respuesta.json();
         }).then(function (res) {
             if (res.error) {
-                alert ('Something happens');
+                alert (res.error);
             } else {
-                alert ('Successfull Login');
+                alert (res.data);
                 localStorage.setItem('jwt', res.token);
                 localStorage.setItem('alias', JSON.stringify(res.user.name))
                 props.changeToken(localStorage.jwt)

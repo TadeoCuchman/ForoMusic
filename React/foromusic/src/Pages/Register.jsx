@@ -28,9 +28,9 @@ const Register = () => {
               return respuesta.json();
           }).then(function (res) {
               if (res.success === false) {
-                  alert ('Something happens');
+                  alert (res.message);
               } else {
-                  alert ('Successfull Register');
+                  alert (res.message);
                   history.push('/Login')                  
               }
             })
