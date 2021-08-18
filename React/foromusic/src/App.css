@@ -11,9 +11,10 @@
     "aside header"
     "aside main"
     "aside footer";
-  grid-template-columns: auto 98% ;
-  grid-template-rows: 200px 3fr auto;  
+  grid-template-columns: 1px auto ;
+  grid-template-rows: 200px 100% 30px;  
   min-height: 100vh;
+  min-width: 100vw;
   background-color: #F53240;     
 }
 

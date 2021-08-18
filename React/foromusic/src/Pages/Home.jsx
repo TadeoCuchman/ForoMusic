@@ -11,7 +11,7 @@ const Home = () => {
             <p>"Where the music just Happens."</p>
       
             <button id='getIn'>
-              <Link to='/Forum'> Forum </Link> </button>;
+              <Link to='/Forum'> Forum </Link> </button>
           </div>
           
           

@@ -13,8 +13,7 @@ const Forum = () => {
     const [posts, cambiarPosts] = useState([])
     const [page, cambiarPage] = useState(1)
     const [numeritos, cambiarNumeritos] = useState(0)
-    const [selected, cambiarSelected] = useState(0)
-    //hacer que el selected tenga un id de post seleccionado y este cambie de clase *= que se haga mas grande y con mas informacion mostrada
+
     
     useEffect(() => {
         cargarPosts()
@@ -28,24 +27,25 @@ const Forum = () => {
         fetch(`http://localhost:4000/feed/page/?page=${page}`)
             .then(response => response.json())
             .then(data => { cambiarPosts(data.postPage) })
+
     }
 
     const Numerito = (props) => {
         return (
-            <button id='numeritos' onClick={() => cambiarPage(props.numerito) }> {props.numerito} </button>
+            <button className='numeritos' onClick={() => cambiarPage(props.numerito) }> {props.numerito} </button>
         )
     }
 
     const BotonAntYSig = () => {
         return (
             <div>
-                <button onClick={()=>{
+                <button className='antSig' onClick={()=>{
                     if (page > 1){
                         (cambiarPage(page-1))
                     }
                 }}>prev</button>
                 
-                <button onClick={()=>{
+                <button className='antSig' onClick={()=>{
                     if (page < numeritos){
                         cambiarPage(page+1)
                     }
@@ -69,7 +69,7 @@ const Forum = () => {
             componentesMuchosNum = [componentesNumeritos[0], componentesNumeritos[1], componentesNumeritos[2], '...', componentesNumeritos[page],'...' , componentesNumeritos[componentesNumeritos.length-1]]
             return (componentesMuchosNum)
         } 
-        return (componentesNumeritos)
+        return (<div>{componentesNumeritos}</div>)
     }
 
 
@@ -102,3 +102,4 @@ const Forum = () => {
 
 
 export default Forum;
+

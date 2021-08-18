@@ -1,11 +1,22 @@
 import React from 'react';
 
 const Profile = () => {
+    
+    
+    
+    
+    
+    
     return (
            <main>
                <br />
                <p>Profile: {localStorage.alias}</p> 
-               <div></div>
+               <div>
+                   Publicaciones hechas
+               </div>
+               <div>
+                   Comentarios hechos
+               </div>
            </main>
         );
 }

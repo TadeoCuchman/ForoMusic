@@ -1,5 +1,12 @@
 import React from 'react';
+
 import './App.css';
+import './Components/Aside.css'
+import './Components/Footer.css'
+import './Components/Header.css'
+import './Components/Nav.css'
+import './Components/Popup.css'
+import './Pages/Main.css'
 
 import ScrollToTop from './Components/ScrollToTop';
 import Nav from './Components/Nav'

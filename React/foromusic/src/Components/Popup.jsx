@@ -8,8 +8,10 @@ const Popup = (props) => {
     const [album, changeAlbum] = useState('')
     const [band, changeBand] = useState('')
     const [description, changeDescription] = useState('')
+    const [user_id, changeUser_id] = useState('')
     const firm = localStorage.alias
 
+    
 
 
     const posting = () => {
@@ -19,8 +21,9 @@ const Popup = (props) => {
             album,
             band,
             description,
-            firm
+            firm, 
         }
+
         fetch('http://localhost:4000/feed', {
               method: "POST",
               headers: {

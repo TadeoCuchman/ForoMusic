@@ -1,41 +1,78 @@
 
 aside { 
-    grid-area: aside;
-    display: grid;
-    position: fixed;
-    align-content: flex-start;
-    justify-content: flex-end;
-    width: 30%;
-    transform: translateX(-80%);
-    height: 100%;
-    background-color:#f5323f ;
-    transition: all 300ms ease-in-out;
-    z-index: 1000;
-    border-radius: 2%;
-    border: 1px dashed black;
-    overflow: hidden;
-  }
+  --aside-width : 30vh;
+  grid-area: aside;
+  display: grid;
+  grid-template-areas:
+    "profilAside"
+    "linksAside"
+    "underAside";
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-columns: 100% ;
+  position: fixed;
+  align-content: flex-start;
+  justify-content: flex-start;
+  width: var(--aside-width);
+  transform: translateX(-80%);
+  height: 100%;
+  background-color:#f5323f ;
+  transition: all 300ms ease-in-out;
+  z-index: 1000;
+  border-radius: 2%;
+  border: 1px dashed black;
+  overflow: hidden;
+}
 
   .colapso:hover {
     transform: translateX(-10px);
   }
   
+  
+  .profilAside {
+    grid-area: profilAside;
+    justify-content: flex-end;
+    align-content: flex-end;
+    
+    
+    
+  }
   #flechita {
-    margin-left: auto;
     margin-top: 50px;
-    margin-right: 9px;
     font-size: 20px;
     font-weight: bold;
   }
     
-  
-  aside ul {
+  .linksAside {
+    grid-area: linksAside;
     display: grid;
-    position: absolute;
-    overflow: hidden;
-    margin-left: 40px;
-    margin-top: 30vh;
-    margin-right: auto;
+    overflow: visible;
     list-style: none;
-    gap: 100px;
+    justify-content: flex-start;
+    align-content: flex-start;
+    padding-top: 10%;
+  }
+  
+  .linksAside li {
+    padding-right: 30%;
+    background-color:grey;
+    border-radius: 5px;
+    width: calc(var(--aside-width) * 0.60);
+  }
+  .asidePath {
+    margin-left: 20%;
+    margin-bottom: 20px;
+  }
+  
+  .asidePath:hover {
+    background-color: grey;
+    width: calc(var(--aside-width) * 0.60);
+    border-radius: 5px; 
+    height:50px;   
+  }
+
+
+  .underAside {
+    grid-area: underAside;
+
+    
   }

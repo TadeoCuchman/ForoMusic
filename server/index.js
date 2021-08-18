@@ -1,8 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const PORT = 4000
+require('dotenv').config();
 
+const PORT = process.env.PORT || 5000
 const usuarios = require("./api/routes/users")
 const feed = require("./api/routes/posts")
 
