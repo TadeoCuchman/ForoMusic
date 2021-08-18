@@ -24,12 +24,14 @@ router.get('/:id', async (req, res) => {
 
 router.post('/register', async (req, res) => {
   try {
-    if (req.body.mail && req.body.name && req.body.country && req.body.password) {
+  if (req.body.mail && req.body.name && req.body.country && req.body.password) {
     const user = await pool.query('SELECT * FROM users WHERE mail = $1;', [req.body.mail])
+    
     if (user.rowCount > 0) {
-      return res.json({success: false, message: 'Mail already exist.'}).status(400)
-    }
-    // Formato del mail
+        return res.json({success: false, message: 'Mail already exist.'}).status(400)
+      }
+
+      // Formato del mail
     if ( /^\S+@\S+\.\S+$/.test(req.body.mail) === false) {
       return res.status(400).json({ success: false, message: 'Mail not correct.' })
     } 
@@ -43,43 +45,12 @@ router.post('/register', async (req, res) => {
     const newUser = await pool.query('SELECT * FROM users WHERE mail = $1;', [req.body.mail])
     const array = newUser.rows
 
-    res.json({ succes: true, message: 'User created successfully.', array}).status(200)
-  
+    return res.json({ succes: true, message: 'User created successfully.', array}).status(200)
+    
   } else {
     return res.json({success: false, message: 'Data missing, required: Mail, Name y Password.'}).status(400)
   }
-  // if (req.body.mail && req.body.name && req.body.password) {
-    // Formato del mail
-    if ( /^\S+@\S+\.\S+$/.test(req.body.mail) === false) {
-        return res.status(400).json({ success: false, message: 'Mail not correct.' })
-    }
     
-    
-    // Existencia del mail
-    // const existeUser = usuarios.find((u) => {
-    //   return req.body.mail === u.mail
-    // })
-    // if (existeUser) {
-    //     return res.status(400).json({ success: false, message: 'Mail already exist.'})
-    // }
-
-
-
-    // Crea y agrega el usuario
-    // const newUser = {
-    //   name: req.body.name,
-    //   mail: req.body.mail,
-    //   password: password,
-    //   salt: salt,
-    // }
-
-    // usuarios.push(newUser)
-
-  //   res.json({ succes: true, message:'User created successfully.', newUser, usuarios })
-  // }
-  //   else {
-  //     return res.status(400).json({ success: false, message:'Data missing, require: Mail, Name y Password.'})
-  //   }
   } catch (err) {
     return res.json({ success: false, message: 'Error with database registering an user' + JSON.stringify(err)})
   }

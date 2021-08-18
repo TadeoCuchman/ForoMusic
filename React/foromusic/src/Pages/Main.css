@@ -5,7 +5,7 @@ main {
     position: relative;
     text-align: center;
     background-color: #02C8A7;  
-    align-content: space-between;
+    align-content: flex-start;  
 }
 
 h1 {
