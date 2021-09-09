@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-const TOKEN_SECRET = 'Ratapacatumbambarandataracaleiaretacarepumba';
+const TOKEN_SECRET = 'Ratapacatumbambarandataracaleiaretacarepumbañ';
 
 // middleware to validate token (rutas protegidas)
 const verifyToken = (req, res, next) => {

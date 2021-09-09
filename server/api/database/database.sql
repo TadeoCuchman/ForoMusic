@@ -19,3 +19,11 @@ CREATE TABLE posts(
 	date DATE NOT NULL,
 	user_id BIGINT NOT NULL REFERENCES users(id)
 );									
+
+CREATE TABLE comments(
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	comment VARCHAR (255) NOT NULL,
+	date DATE NOT NULL,
+	user_id BIGINT NOT NULL REFERENCES users(id),
+	post_id BIGINT NOT NULL REFERENCES posts (id),
+);

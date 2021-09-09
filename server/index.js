@@ -15,7 +15,7 @@ app.use('/users', usuarios)
 app.use('/feed', feed)
 
 app.use('*', (req, res) => {
-    res.send('ketapaandaaaaa')
+    res.send('ketapaasaaandaaaaa')
 })
 
 app.listen(PORT, (req, res) => {
