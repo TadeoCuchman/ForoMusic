@@ -1,129 +1,27 @@
-
 main {
-    grid-area: main;
-    display:grid;
-    position: relative;
-    text-align: center;
-    background-color: #02C8A7;  
-    align-content: flex-start;  
+  grid-area: main;
+  position: relative;
+  text-align: center;
+  background-color: #02c8a7;
 }
 
 h1 {
-    margin-top: 20px;
-    height: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-#home {
-    justify-content: center;
-    padding: 10%;
-    margin-top: 50px; 
-    gap:10px;
+input {
+  text-align: center;
+}
+/* About Us */
+
+main p {
+  margin-top: 2%;
+  margin-left: 20%;
+  margin-right: 20%;
+  font-size: 15px;
 }
 
-#home button {
-    margin-top:20px;
+main h3 {
+  margin-top: 5%;
 }
-
-#feed {
-    display: grid;
-    margin-top: 50px;
-}
-
-#nuevoArtBoton {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 20%;
-    border: 1px dotted;
-    background-color: #F9BE02;
-    font-size: 20px;
-    margin-top: 10px;
-    right: 2%;  
-}
-
-#delete {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 20%;
-    border: 1px dotted;
-    background-color: #F9BE02;
-    font-size: 20px;
-    margin-top: 70px;
-    right: 2%;  
-}
-
-
-#inputArticulo input {
-    width: 50%
-}
-
-.nuevoArticulo {
-    display: grid;
-    background-color: #F9BE02;
-    width: 60% ;
-    margin-left: auto;
-    margin-right: auto  ;
-    margin-bottom: 3%;
-    border: 1px solid black; 
-    border-radius: 10px;  
-    overflow: hidden;
-    text-transform: lowercase;
-    position:sticky;
-}
-
-.nuevoArticulo p {
-    text-transform: lowercase;
-}
-
-.nuevoArticulo p:first-letter {
-    text-transform: uppercase;
-}
-
-.nuevoArticuloExpandido {
-    width: 80%;
-    height: 50vh;
-    position:sticky;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-#descripcion {
-    width: 300px;
-    height: 70px;
-}
-
-.numeritos{
-    width: 13px;
-    height: 20px;
-    margin-left: 2px;
-
-}
-
-.antSig {
-    margin-right: 2px;
-}
-
-#select {
-    background-color: #F9BE02;
-    position: absolute;
-    width: 100px;
-    height: 20px;
-    margin-left:45%;
-    margin-right: auto;
-    margin-top: 100px;
-  }
-
-  /* About Us */
-
-  main p {
-    margin-top: 2%;  
-    margin-left: 20%;
-    margin-right: 20%;
-    font-size: 15px;
-  }
-
-  main h3 {
-    margin-top: 5%
-  }
