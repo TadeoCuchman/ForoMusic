@@ -1,0 +1,15 @@
+#divUsers {
+  width: 50%;
+  height: 80%;
+  background-color: #f9be02;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: auto;
+  border-radius: 10px;
+}
+
+#divUsers ul li {
+  padding: 10px;
+  list-style: none;
+}
