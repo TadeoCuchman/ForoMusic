@@ -12,14 +12,34 @@ router.get('/', async (req, res) => {
         const ALLPOSTS = await pool.query('SELECT * FROM posts')
         const array = ALLPOSTS.rows
         
-        return res.json({ success: true, message: 'Todos los posts desde el inicio', array }).status(200)
+        return res.json({ success: true, message: 'Every post', array }).status(200)
 
     } catch (err) {
-        return res.json({ success: false, message:'No me la counter strike X.X'})
+        return res.json({ success: false, message:'No conection with database'})
     }
 
 })
 
+
+// para hacer una busqueda
+router.get('/search', async (req, res) => {
+
+    try {
+        const searchTerm = `%${ req.query.search }%`
+        const research = await pool.query("SELECT * FROM posts WHERE album ILIKE $1 OR band ILIKE $1", [searchTerm])
+        const array = research.rows
+        if (array.length > 0) {
+            return res.json({ success: true, message: 'Research:', array }).status(200)
+        } else { return res.json({success: false, message:'Not found ' + req.query.search, array}).status(400) }
+
+
+    } catch (err) {
+        return res.json({ success: false, message:'Could not find any results on datebase' + JSON.stringify(err)}).status(400)
+
+    }
+})
+
+//numero de pagignas q significan todos los posts
 router.get('/npages', async (req, res) => {
     try {
     const Posts = await pool.query('SELECT * FROM posts')
@@ -30,19 +50,17 @@ router.get('/npages', async (req, res) => {
 
     } catch (error){
         res.json({ success: false, message: 'nPages dosent load' + JSON.stringify(error)}).status(200)
-    }    
-    // const nPages = (Posts.length) / 8
-    // const nRedondeado = Math.ceil(nPages)
-     
+    }     
 })
 
+//carga los posts que corresponden a la pagina page de 8 posts correspondiente
 router.get('/page', async (req, res) => {
     try {
         const page = req.query.page;
 
         const firstIndex = (page - 1) * 8
         const lastIndex = firstIndex + 8
-        const Posts = await pool.query('SELECT * FROM posts ORDER BY date') 
+        const Posts = await pool.query('SELECT * FROM posts ORDER BY date DESC') 
         const array = Posts.rows
         const postPage = array.slice(firstIndex, lastIndex)
 
@@ -53,6 +71,7 @@ router.get('/page', async (req, res) => {
     }
 })
 
+//carga todas las categorias de mis posts
 router.get('/allCates', async (req, res) => {
     try {
         const categorys = await pool.query('SELECT DISTINCT category FROM posts')
@@ -65,19 +84,36 @@ router.get('/allCates', async (req, res) => {
     }
 })
 
+// carga todos los posts de una categoria dada
 router.get('/category', async (req, res) => {
     try {
-        const category = req.query  .category
-        const array = await pool.query('SELECT * FROM posts WHERE category = $1', [category])
+        const category = req.query.category
+        const array = await pool.query('SELECT * FROM posts WHERE category = $1 ORDER BY date DESC', [category])
         const filtrados = array.rows
 
-    return res.json({succes: true, message:'Elementos de misma categoria', category ,filtrados}).status(200)
+    return res.json({succes: true, message:'Elements with same category', category ,filtrados}).status(200)
     
     } catch (err) {
         return res.json({ success: false, message: 'Database Problem' + JSON.stringify(err)}).status(400)
     }
 })
 
+// obtener los posts odenados por fecha del año pedido (no lo usea aun)
+router.get('/Date', async (req, res) => {
+    try {
+        const year = req.query.year
+        const date = `${year}-01-01`
+        const date2 = `${year + 1}-01-01`
+        const array = await pool.query('SELECT * FROM posts WHERE album_date BETWEEN $1 AND $2', [date, date+1])
+        const filtrados = array.rows
+
+        return res.json({succes: true, message:'Elements with same year', filtrados}).status(200)
+    }catch (err) {
+        return res.json({ success: false, message: 'Database Problem' + JSON.stringify(err)}).status(400)
+    }
+})
+
+// postear un nuevo post
 router.post('/', verifyToken, async (req, res) => {
     try {
         const album = req.body.album;
@@ -91,13 +127,13 @@ router.post('/', verifyToken, async (req, res) => {
 
         } else {
             
-            await pool.query('INSERT INTO posts (category, link, album, band, description, firm, date, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', [req.body.category, req.body.link, req.body.album, req.body.band, req.body.description, req.user.name, date, req.user.id])
+            await pool.query('INSERT INTO posts (category, link, album, band, description, firm, date, album_date, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', [req.body.category, req.body.link, req.body.album, req.body.band, req.body.description, req.user.name, date, req.body.album_date, req.user.id])
             const newPost = await pool.query('SELECT * FROM posts WHERE album = $1', [album])
             const allPost = await pool.query('SELECT * FROM posts')
 
             const info = [newPost.rows, allPost.rows]
             
-            return res.json({ success: true, message:'Post Successfull', info})
+            return res.json({ success: true, message:'Post Successfull, newPost, allPosts', info })
         }
 
         
@@ -108,20 +144,29 @@ router.post('/', verifyToken, async (req, res) => {
 
 })
 
+// obtener todos los posts de un id dados 
+router.get('/MyPosts', verifyToken, async (req, res) => {
+    try{
+        const id = req.user.id
+        const posts = await pool.query('SELECT * FROM posts WHERE user_id = $1', [id])
+        const array = posts.rows
+
+        return res.json({succes: true, message:'Posts done by' + req.user.name, array}).status(200)
+    } catch (error){
+        return res.json({ success: false, message: 'Database Problem' + JSON.stringify(err)}).status(400)
+    }
+})
+
+
 router.put('/:id', verifyToken, async (req, res) => {
-    try {const changePost = await pool.query('SELECT * FROM posts WHERE id = $1', [req.body.id])
-    if (changePost) { 
-        const post = await pool.query('UPDATE posts SET category = $1, link = $2, band = $3, description = $4 WHERE id = $5', [req.body.category, req.body.link, req.body.band, req.body.description, req.body.id])
-        
+    try {const changePost = await pool.query('SELECT * FROM posts WHERE id = $1', [req.params.id])
+        if (changePost) { 
+            const post = await pool.query('UPDATE posts SET category = $1, link = $2, band = $3, description = $4 WHERE id = $5', [req.body.category, req.body.link, req.body.band, req.body.description, req.body.id])
+            
         return res.json({ success: true, message:' Successfull update, ', post})
     } else {
         return res.json({ success: false, message:"Post couldn't be found."})
     }
-    // const postPut = Posts.find((a) => {
-    //     if (req.body.album === a.album){
-            
-    //     }
-    // })
 
     } catch (err) {
         return res.json({ success: false, message:'No connection with database' + JSON.stringify(error)}).status(400)
@@ -141,6 +186,5 @@ router.delete('/', verifyToken, async (req, res) => {
     
 })
 
-// const Posts = [{id:0}];
 
 module.exports = router;
