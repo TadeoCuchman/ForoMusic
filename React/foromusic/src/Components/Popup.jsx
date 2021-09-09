@@ -8,7 +8,7 @@ const Popup = (props) => {
     const [album, changeAlbum] = useState('')
     const [band, changeBand] = useState('')
     const [description, changeDescription] = useState('')
-    const [user_id, changeUser_id] = useState('')
+    const [album_date, changeAlbumDate] = useState('')
     const firm = localStorage.alias
 
     
@@ -21,6 +21,7 @@ const Popup = (props) => {
             album,
             band,
             description,
+            album_date,
             firm, 
         }
 
@@ -43,7 +44,8 @@ const Popup = (props) => {
                 <input type="url" name="link" placeholder="Link" id='lin' onChange={ (e) => changeLink(e.target.value) } />
                 <input type="text" name="album" placeholder="Album Name" id='alb' onChange={ (e) => changeAlbum(e.target.value) } />
                 <input type="text" name="band" placeholder="Band Name" id='ban' onChange={ (e) => changeBand(e.target.value) } />
-                <input type="text"  name="descripcion" placeholder="Descripción" id='des' onChange={ (e) => changeDescription(e.target.value) } /> 
+                <input type="text"  name="descripcion" placeholder="Description" id='des' onChange={ (e) => changeDescription(e.target.value) } /> 
+                <input type="date" name='albumDate' placeholder="Album Date" id='albumDate' onChange={ (e) => changeAlbumDate(e.target.value)} />
                 <input type="submit" id="submit" onClick = { () => { 
                     posting() } }/>
             </form>

@@ -1,9 +1,9 @@
 .popup {
-    position: fixed;
-    min-height: 100vh;
+    position: absolute;
+    min-height: 100%;
     width: 100vw;
     z-index: 3;
-    background-color: #f9bf0278;
+    background-color: #f9bf0291;
 }
 
 #inputArticulo {
