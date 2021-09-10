@@ -3,17 +3,13 @@ import {useState} from 'react';
 import { Link } from "react-router-dom";
 
 
-// agregar que al click despliegue mas informacion y la posibilidad de agregar comentarios
-// hacer un grid y ordenar mejor el post
-
-
 const Post = (props) => {
 
     return (
         <div className={` nuevoArticulo ${props.selected ? 'nuevoArticuloExpandido' : ''}`}
         onClick={() => { if (props.selected) {props.cambiarSelected(-1)} else {props.cambiarSelected(props.id)} }}>
             <div className='title'>
-                <p>{props.album}</p>
+                <h1>{props.album}</h1>
                 <p>Band: {props.band}</p>
             </div>
            
@@ -21,14 +17,14 @@ const Post = (props) => {
             
                  {props.selected && 
                 <>
-                    <h3><a href={`${props.link}`} target="_blank" >{props.link}</a></h3>
+                    <h3><a href={`${props.link}`} target="_blank" rel="noreferrer">{props.link}</a></h3>
                     <p>Album date: {props.album_date}</p>
                     <p>Category: {props.category}</p>
                     <p>{props.description}</p>
                     <div className='comments'>
-                        <Link to={`/Post/?:${props.id}`} id='comments' >Comments</Link>    
+                        <Link to={`/Post/${props.id}`} id='comments' >Comments</Link>    
                     </div>        
-                    <Link id='firm' to={`/User/:${props.user_id}`}>{props.firm}</Link>
+                    <Link id='firm' to={`/User/${props.user_id}`}>{props.firm}</Link>
                  </>}
             </div>
            
