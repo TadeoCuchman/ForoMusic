@@ -6,6 +6,7 @@ require('dotenv').config();
 const PORT = process.env.PORT || 5000
 const usuarios = require("./api/routes/users")
 const feed = require("./api/routes/posts")
+const comment = require("./api/routes/comments")
 
 const app = express()
 app.use(bodyParser.json())
@@ -13,6 +14,7 @@ app.use(cors())
 
 app.use('/users', usuarios)
 app.use('/feed', feed)
+app.use('/comment/:id', comment)
 
 app.use('*', (req, res) => {
     res.send('ketapaasaaandaaaaa')
