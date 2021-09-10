@@ -1,13 +1,13 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import logo from '../logo.jpg'
 
-// hacer un buscador para la music
 
 const Header = () => {
     return (
       <header>
-          <img src={ logo } id='logo' alt='logo'/>
+          <Link to='/'><img src={ logo } id='logo' alt='logo'/></Link>
       </header>
     )
 }

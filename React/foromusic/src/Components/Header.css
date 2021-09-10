@@ -1,32 +1,34 @@
-
 header {
-    display: grid;
-    grid-area: header;
-    position: relative;
-    min-width: 350px;
-    text-align: center;
-    align-content: center;
-    background-color:#7CDBD5 ;
-    border-bottom: 1px solid black;
+  display: grid;
+  grid-area: header;
+  position: relative;
+  min-width: 350px;
+  text-align: center;
+  align-content: center;
+  background-color: #7cdbd5;
+  border-bottom: 1px solid black;
 }
 
 header div {
-    display: grid;
-    height: 100%;
-    width: auto;
-    background-color: #F53240;
-    border-bottom: 1px solid black;
-
+  display: grid;
+  height: 100%;
+  width: auto;
+  background-color: #f53240;
+  border-bottom: 1px solid black;
 }
 
-
 #logo {
-    width: 120px;
-    border-radius: 10%;
-    border: 1px solid;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    z-index: 100;
+  width: 120px;
+  border-radius: 10%;
+  border: 1px solid;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  z-index: 100;
+  transition: all 300ms ease-in-out;
+}
+
+#logo:hover {
+  transform: scale(1.025);
 }
