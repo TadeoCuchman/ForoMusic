@@ -6,6 +6,7 @@ const pool = require('../database/index')
 
 const router = express.Router()
 
+// obtiene todos los posts
 router.get('/', async (req, res) => {
     
     try {
@@ -15,11 +16,25 @@ router.get('/', async (req, res) => {
         return res.json({ success: true, message: 'Every post', array }).status(200)
 
     } catch (err) {
-        return res.json({ success: false, message:'No conection with database'})
+        return res.json({ success: false, message:'No conection with database' + JSON.stringify(err)})
     }
 
 })
 
+// obtiene un post por id
+router.get('/post/:id', async (req, res) => {
+    try {
+        const post = await pool.query('SELECT * FROM posts WHERE id = $1', [req.params.id])
+        const array = post.rows
+        
+        return res.json({ success: true, message:'Post' + req.params.id, array }).status(200)
+
+
+    } catch (err) {
+
+        return res.json({ success: false, message:'No conection with database' + JSON.stringify(err)})
+    }
+})
 
 // para hacer una busqueda
 router.get('/search', async (req, res) => {
@@ -98,7 +113,7 @@ router.get('/category', async (req, res) => {
     }
 })
 
-// obtener los posts odenados por fecha del año pedido (no lo usea aun)
+// obtener los posts odenados por fecha del año pedido 
 router.get('/Date', async (req, res) => {
     try {
         const year = req.query.year
@@ -133,7 +148,7 @@ router.post('/', verifyToken, async (req, res) => {
 
             const info = [newPost.rows, allPost.rows]
             
-            return res.json({ success: true, message:'Post Successfull, newPost, allPosts', info })
+            return res.json({ success: true, message:'Post Successfull', info })
         }
 
         
