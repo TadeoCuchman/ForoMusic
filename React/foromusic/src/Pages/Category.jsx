@@ -13,8 +13,6 @@ const Category = () => {
     
     
     const cargarCategorizados = () => {
-        
-        
 
         fetch(`http://localhost:4000/feed/category/?category=${category}`)  
             .then(response => response.json())
@@ -27,8 +25,6 @@ const Category = () => {
             .then(data => { 
                 setCategorys(data.array)
             })
-        
-        
     }
     
     return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 
 const Contact = () => {
     const mail = 'fhos@gmail.com'
@@ -30,7 +29,7 @@ const Contact = () => {
                     <button onClick={copy} > Copy </button>
                </div>
            </main>
-        );
+        )
 }
 
 export default Contact;
