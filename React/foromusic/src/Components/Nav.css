@@ -1,12 +1,41 @@
-
 nav {
-    position: absolute;
-    right: 0;
-    z-index: 2;
-    padding: 5px;
-    background-color: #7CDBD5;
-    border-radius: 5px;
-    margin-top: 5px;
-    margin-right: 5px;
-  }
-  
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  padding: 5px;
+  background-color: #7cdbd5;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.logout {
+  border: 1px dotted;
+  background-color: #f9be02;
+  border-radius: 50%;
+  margin-right: 13px;
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.logs {
+  width: 90px;
+}
+
+.logss {
+  border: 1px dotted;
+  background-color: #f9be02;
+  border-radius: 2px;
+  margin-right: 13px;
+  margin-top: 5px;
+  width: 90px;
+  height: 25px;
+}
+
+#getIn {
+  width: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f9be02;
+}

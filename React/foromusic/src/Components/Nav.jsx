@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom'
-import { useState } from "react"
+
 
 const Nav = (props) => {
   let history = useHistory();
@@ -27,13 +27,4 @@ const Nav = (props) => {
   }
 } 
 
-const Buscador = () => {
-  return(
-  <>  
-    <input type='text' id='buscador'/>
-    <button className='logout'>Search</button>
-    <span>  ............  </span>
-  </>
-  )
-}
 export default Nav;
