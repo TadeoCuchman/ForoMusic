@@ -16,6 +16,7 @@ const Forum = () => {
 
     useEffect(() => {
         cargarPosts()
+        cambiarPopup(false)
     }, [page])
 
     const cargarPosts = () => {
