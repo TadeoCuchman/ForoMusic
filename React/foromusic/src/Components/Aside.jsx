@@ -13,23 +13,24 @@ const Aside = () => {
       
       <div className="profilAside">
         {!localStorage.jwt && 
-        <span id='notLogged'>No User Logged</span>}
+        <span id='notLogged'>No User Logged</span>
+        }
         {localStorage.jwt && 
         <>
         <span id='profilname'>{localStorage.alias}</span>
-        <img id='profilphoto' src={unknown} alt='profil photo'/>
-        <span id='flechita' >{'- >'}</span>
-        <span id='flechita' >{'- >'}</span>
+        <img id='profilphoto' src={unknown} alt='profil'/>
         </>
         }
+        <span id='flechita' >{'- >'}</span>
+        <span id='flechita' >{'- >'}</span>
       </div>
       <div id='midAside'>
         <AsideLinks />
       </div>
   
       <div className="underAside">
+        <br/>
         <span id='underQuote'>∞ Where magic beguns ∞</span>
-        <Link id='asideHome' to='/'><button id='asideHome'> Home</button></Link> 
       </div>
 
     </aside> 
@@ -52,7 +53,7 @@ const Aside = () => {
 
     return(
       <>
-        <li className="asidePath" onClick = {() => cambiarOpen(!open)}><Link >{props.to} </Link></li>
+        <li className="asidePath" onClick = {() => cambiarOpen(!open)}>{props.to}</li>
         {open && props.children}
       </>
     )
