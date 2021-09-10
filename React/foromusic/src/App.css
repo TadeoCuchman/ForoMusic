@@ -2,8 +2,11 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family: WildWest;
 }
-
+body {
+  background-color: #7cdbd5;
+}
 
 .body {
   display: grid;
@@ -11,31 +14,29 @@
     "aside header"
     "aside main"
     "aside footer";
-  grid-template-columns: 1px auto ;
-  grid-template-rows: 200px 100% 30px;  
+  grid-template-columns: 1px auto;
+  grid-template-rows: 200px 94% 30px;
   min-height: 100vh;
   max-height: 100%;
-  min-width: 100vw;
-  background-color: #F53240;     
+  max-width: 100vw;
+  background-color: #f53240;
 }
-
 
 a {
-  color:black;
+  color: black;
 }
 
-a:link, a:visited, a:active {
-  text-decoration:none;
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
 }
-
 
 button:hover {
   cursor: pointer;
 }
 
-
 /* forms */
-
 
 .forms {
   max-width: 300px;
@@ -63,44 +64,31 @@ button:hover {
 
 .logout {
   border: 1px dotted;
-  background-color: #F9BE02;
-  border-radius: 50% ;
+  background-color: #f9be02;
+  border-radius: 50%;
   margin-right: 13px;
   margin-top: 10px;
   width: 50px;
   height: 50px;
 }
 
-.logs{
+.logs {
   width: 90px;
 }
 
 .logss {
   border: 1px dotted;
-  background-color: #F9BE02;
-  border-radius: 2px ;
+  background-color: #f9be02;
+  border-radius: 2px;
   margin-right: 13px;
   margin-top: 5px;
   width: 90px;
   height: 25px;
 }
 
-
 #getIn {
   width: 40px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #F9BE02;
-
-
+  background-color: #f9be02;
 }
-
-
-
-
-
-
-
-
-
-
