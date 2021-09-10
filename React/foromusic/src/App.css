@@ -34,6 +34,7 @@ a:active {
 
 button:hover {
   cursor: pointer;
+  transform: scale(1.025);
 }
 
 /* forms */
@@ -60,35 +61,4 @@ button:hover {
   border-style: none;
   height: 25px;
   background-color: rgb(243, 243, 243);
-}
-
-.logout {
-  border: 1px dotted;
-  background-color: #f9be02;
-  border-radius: 50%;
-  margin-right: 13px;
-  margin-top: 10px;
-  width: 50px;
-  height: 50px;
-}
-
-.logs {
-  width: 90px;
-}
-
-.logss {
-  border: 1px dotted;
-  background-color: #f9be02;
-  border-radius: 2px;
-  margin-right: 13px;
-  margin-top: 5px;
-  width: 90px;
-  height: 25px;
-}
-
-#getIn {
-  width: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #f9be02;
 }
