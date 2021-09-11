@@ -36,6 +36,8 @@ import MyPosts from './Pages/MyPosts'
 import AllUsers from './Pages/AllUsers'
 import ByDates from './Pages/ByDates'
 import Post from './Pages/Post'
+import Support from './Pages/Support';
+import Trending from './Pages/Trending'
 
 import { useState } from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -59,7 +61,7 @@ const App = () => {
               <Forum />
             </Route>
 
-            <Route path='/Post/:id'>
+            <Route exact path='/Post/:id'>
               {token && <Aside/>}
               <Post />
             </Route>
@@ -67,6 +69,11 @@ const App = () => {
             <Route path='/Category'>
               {token && <Aside/>}
               <Category />
+            </Route>
+
+            <Route path='/Trending'>
+              {token && <Aside/>}
+              <Trending />
             </Route>
             
 
@@ -84,25 +91,33 @@ const App = () => {
             </Route>
 
             <Route path='/Comunity'>
-            <Aside/>
-              {token && <Aside/> && <Comunity />}
+              {token  && <Comunity />}
+              {token && <Aside />}
             </Route>
 
             <Route path='/AllUsers'>
-            <Aside/>
-              {token && <Aside/> && <AllUsers />}
+              {token && <AllUsers />}
+              {token && <Aside />}
             </Route>
 
             <Route path='/Profile'>
-              {token && <Aside/> && <Profile />} 
+              {token  && <Profile />} 
+              {token && <Aside />}
             </Route>
 
             <Route path='/Settings'>
-            {token && <Aside/> && <Settings />}
+            {token  && <Settings />}
+            {token && <Aside />}
             </Route>
 
             <Route path='/MyPosts'>
-              {token && <Aside/> && <MyPosts />}
+              {token && <MyPosts />}
+              {token && <Aside />}
+            </Route>
+
+            <Route path='/Support'>
+              {token && <Support />}
+              {token && <Aside />}
             </Route>
 
             <Route path='/Contact'>
