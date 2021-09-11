@@ -21,7 +21,7 @@ const Searcher = () => {
             <input type='text' id='searcher' placeholder='Research' onChange={(e) => {setResearch(e.target.value)}}/>
             { (posts.length > 0) && (research !== '') && 
             <ul id='searched'>
-                { posts.map((post) => { return <Link to={`/feed/Post/${post.id}`} ><li>{post.band + ' | ' + post.album }</li></Link>})}
+                { posts.map((post, key) => { if (key < 8) return <Link to={`/Post/${post.id}`} ><li>{post.band + ' | ' + post.album }</li></Link>})}
             </ul>}
         </div>
     )

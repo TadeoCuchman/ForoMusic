@@ -7,6 +7,8 @@ const Category = () => {
     const [category, changeCategory] = useState('')
     const [categorys, setCategorys] = useState([])
 
+    // falta hacer que no se duplique la categoria por mayuscula o minuscula
+
     useEffect(() => {
         cargarCategorizados()
     }, [category])
@@ -34,7 +36,7 @@ const Category = () => {
             <h1>Category's</h1>
             <select id="select" onChange={a => changeCategory(a.target.value)}>
                 <option defaultValue> Category </option>
-                {categorys.map((cat) => { return <Options category = {cat.category} />}) }
+                {categorys.map((cat, key) => { return <Options key={key} category = {cat.category} />}) }
             </select>
   
             <div id="feed">
@@ -50,7 +52,7 @@ const Category = () => {
 
 const Options = (props) => {
     return (
-        <option value={props.category}> {props.category} </option>
+        <option key={props.key} value={props.category}> {props.category} </option>
     )
 }
 
