@@ -1,0 +1,112 @@
+#mainPost {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+#completePost {
+  display: grid;
+  grid-template-areas: "info" "comments";
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 100%;
+  background-color: #f9be02;
+  width: 80%;
+  height: 90%;
+  border-radius: 20px;
+  margin-left: 30px;
+  border: 1px solid black;
+}
+
+.infoPost {
+  grid-area: info;
+  display: grid;
+  align-content: stretch;
+  align-items: stretch;
+  border-right: 1px dashed black;
+  overflow: hidden;
+}
+
+.comments {
+  display: grid;
+  grid-template-areas:
+    "info"
+    "comments"
+    "newComment";
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 73% 17%;
+  align-content: start;
+}
+
+.infoComments {
+  grid-area: info;
+  text-decoration: underline;
+  text-decoration: bold;
+  margin-top: 10px;
+}
+
+.commentsDB {
+  grid-area: comments;
+  border: 1px solid black;
+  overflow-y: scroll;
+  background-color: #7cdbd5;
+  width: 95%;
+  height: 95%;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+
+#newComment {
+  grid-area: newComment;
+  position: relative;
+  background-color: white;
+  border: 1px dashed black;
+  text-align: left;
+  width: 95%;
+  height: 95%;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 17px;
+}
+
+#newComment textarea {
+  width: 100%;
+  height: 90%;
+  resize: none;
+  border: 0;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#submitComment {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 101%;
+  border-radius: 10px;
+  border: 0px;
+}
+
+#submitComment:hover {
+  cursor: pointer;
+  background-color: #7cdbd5;
+  border: 1px dotted black;
+}
+
+.comment {
+  border: 1px solid rgba(164, 164, 164, 0.622);
+  border-radius: 10px;
+  margin-bottom: px;
+  padding-top: 5px;
+}
+
+.comment:hover {
+  cursor: crosshair;
+}
+
+.date {
+  font-size: 10px;
+  margin-left: 50%;
+}
