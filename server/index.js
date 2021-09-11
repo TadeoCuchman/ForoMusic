@@ -14,7 +14,7 @@ app.use(cors())
 
 app.use('/users', usuarios)
 app.use('/feed', feed)
-app.use('/comment/:id', comment)
+app.use('/comments', comment)
 
 app.use('*', (req, res) => {
     res.send('ketapaasaaandaaaaa')
