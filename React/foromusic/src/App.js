@@ -15,6 +15,7 @@ import './Pages/Settings.css'
 import './Pages/Profile.css'
 import './Pages/Post.css'
 
+
 import ScrollToTop from './Components/ScrollToTop';
 import Nav from './Components/Nav'
 import Aside from './Components/Aside';
@@ -38,6 +39,7 @@ import ByDates from './Pages/ByDates'
 import Post from './Pages/Post'
 import Support from './Pages/Support';
 import Trending from './Pages/Trending'
+import Discover from './Pages/Discover';
 
 import { useState } from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -74,6 +76,11 @@ const App = () => {
             <Route path='/Trending'>
               {token && <Aside/>}
               <Trending />
+            </Route>
+            
+            <Route path='/Discover'>
+              {token && <Aside/>}
+              <Discover />
             </Route>
             
 
