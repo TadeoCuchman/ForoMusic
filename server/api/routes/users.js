@@ -62,13 +62,6 @@ router.post('/login', async (req, res) => {
   if (user.rowCount <= 0) {
     return res.status(400).json({ error: 'User not found' });
   }
-
-
-  // Buscamos el usuario con el mismo mail
-  // const user = usuarios.find((u) => u.mail === req.body.mail);
-  // if (!user) {
-  //   return res.status(400).json({ error: 'Usuario not found' });
-  // }
   
   const validPassword = await bcrypt.compare(req.body.password, array[0].password);
   if (!validPassword) {
@@ -103,18 +96,7 @@ router.get('/allUsers', verifyToken, async (req, res) => {
   }
 });
 
-// router.get('/:id', async (req, res) => {
-//   try {
-//     const user = await pool.query('SELECT * FROM users WHERE id = $1;', [req.params.id])
-//     const array = user.rows
-//     if (user) { res.json({success: true, message: 'User:' + array})}
-//     else { res.json({success: false, message:'User not found'})}
-//   } catch (err) {
-//     return res.json({ success: false, message: 'Error with database looking for an user' + JSON.stringify(err)})
-
-//   }
-// })
 
 const usuarios = [];
 
-module.exports = router, usuarios;
+module.exports = router;

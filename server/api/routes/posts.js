@@ -172,28 +172,33 @@ router.get('/MyPosts', verifyToken, async (req, res) => {
     }
 })
 
-
+// modifica un post ya existente hecho por el usuario
 router.put('/:id', verifyToken, async (req, res) => {
-    try {const changePost = await pool.query('SELECT * FROM posts WHERE id = $1', [req.params.id])
-        if (changePost) { 
-            const post = await pool.query('UPDATE posts SET category = $1, link = $2, band = $3, description = $4 WHERE id = $5', [req.body.category, req.body.link, req.body.band, req.body.description, req.body.id])
-            
+    try {
+
+        const changePost = await pool.query('SELECT * FROM posts WHERE id = $1', [req.params.id])
+        array = changePost.rows
+        if (array && (req.user.id === array[0].user_id)) { 
+            const post = await pool.query('UPDATE posts SET category = $1, link = $2, band = $3, description = $4, album_date= $5 WHERE id = $6', [req.body.category, req.body.link, req.body.band, req.body.description, req.body.album_date,req.params.id])   
         return res.json({ success: true, message:' Successfull update, ', post})
     } else {
         return res.json({ success: false, message:"Post couldn't be found."})
     }
 
     } catch (err) {
-        return res.json({ success: false, message:'No connection with database' + JSON.stringify(error)}).status(400)
+        return res.json({ success: false, message:'No connection with database' + JSON.stringify(err)}).status(400)
     }
 })
 
-router.delete('/', verifyToken, async (req, res) => {
+//elimina un post
+router.delete('/:id', verifyToken, async (req, res) => {
     try {
-        const postToDelete = await pool.query('DELETE FROM posts WHERE id = $1', [req.body.id])
-
-
-    return res.json({ success:true, message: 'Post Deleted Successfuly', postToDelete})
+        const POST = await pool.query('SELECT * FROM posts WHERE posts.id = $1', [req.params.id])
+        const post = POST.rows[0]
+        if (req.user.id === post.user_id){
+            const postToDelete = await pool.query('DELETE FROM posts WHERE id = $1', [req.params.id])
+            return res.json({ success:true, message:'Post Deleted Successfully'}).status(200)
+        } else { return res.json({succes: false, message: 'Not able to delete post.'})}
 
 } catch (err) {
     return res.json({ success: false, message: 'No connection to database' + JSON.stringify(err)})
