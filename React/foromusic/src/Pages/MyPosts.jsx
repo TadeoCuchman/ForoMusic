@@ -34,24 +34,26 @@ const MyPosts = () => {
     }
 
     const deletePost = (a) => {
-        var r = window.confirm(`Are you sure you want to Delete this post? "${postToMod[0].album}"`)
-        if(r === true){
-            fetch(`http://localhost:4000/feed/${a}`, {
-                method: 'DELETE',
-                headers: {
-                    "Content-Type" : "application/json",
-                    "auth-token" : localStorage.getItem("jwt")
-                },
-            }).then((res) => {
-                return res.json()
-            }).then((res) => {
-                if (res.error) {
-                    alert (res.error)
-                } else { 
-                    alert(res.message)
-                    chargePosts()
-                }
-            })
+        if (postToMod.length > 0){
+            var r = window.confirm(`Are you sure you want to Delete this post? "${postToMod[0].album}"`)
+            if(r === true){
+                fetch(`http://localhost:4000/feed/${a}`, {
+                    method: 'DELETE',
+                    headers: {
+                        "Content-Type" : "application/json",
+                        "auth-token" : localStorage.getItem("jwt")
+                    },
+                }).then((res) => {
+                    return res.json()
+                }).then((res) => {
+                    if (res.error) {
+                        alert (res.error)
+                    } else { 
+                        alert(res.message)
+                        chargePosts()
+                    }
+                })
+            }
         }
     }
 
