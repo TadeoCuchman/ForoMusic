@@ -44,7 +44,7 @@ const Post = () => {
     const chargeCommentsDB = () => {
         fetch(`http://localhost:4000/comments/${id}`)
             .then(response => response.json())
-            .then(data => setCommentsDB(data.array))      
+            .then(data => setCommentsDB(data.array))  
     }
 
     const deleteComment = (a) => {
@@ -89,7 +89,7 @@ const Post = () => {
                             <ul className='CommentsUl'>
                                 {commentsDB.map((a, key) => <li key={key} className='comment' onClick={
                                     () => deleteComment(a.id)
-                                }> <span>{a.firm}:</span><br/>{a.comment}<br/><span className='date'>{a.date}</span></li>)}
+                                }> <span>{a.name}:</span><br/>{a.comment}<br/><span className='date'>{a.date}</span></li>)}
                             </ul>}
                         </div>
                         <form id='newComment' method='post' action="javascript:void(0);">
