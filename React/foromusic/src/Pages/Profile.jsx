@@ -3,7 +3,7 @@ import React from 'react';
 const Profile = () => {
     
     
-    
+    // falta implementar Profile con toda la informacion visible para otros pefiles
     
     
     
@@ -12,7 +12,7 @@ const Profile = () => {
                <br />
                <p>Profile: {localStorage.alias}</p> 
                <div>
-                   Publicaciones hechas
+                   
                </div>
                <div>
                    Comentarios hechos
@@ -21,4 +21,4 @@ const Profile = () => {
         );
 }
 
-export default Profile;
+export default Profile

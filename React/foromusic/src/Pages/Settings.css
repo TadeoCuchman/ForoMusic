@@ -1,0 +1,20 @@
+#mainSettings {
+  display: grid;
+  justify-items: center;
+  align-content: space-around;
+}
+
+#mainSettings div {
+  display: grid;
+  border: 1px solid black;
+  width: 80%;
+  height: calc(100vh / 4);
+  align-content: space-around;
+  justify-content: center;
+}
+
+#mainSettings input {
+  border-radius: 5px;
+  border: 0px;
+  margin-bottom: 5px;
+}
