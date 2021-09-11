@@ -57,6 +57,10 @@
   margin-top: 5px;
 }
 
+.commentsDB::-webkit-scrollbar {
+  width: 2%;
+}
+
 #newComment {
   grid-area: newComment;
   position: relative;
