@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from "react"
 import './ListOfUsers.css';
+import { Link } from 'react-router-dom'
 
 const ListOfUsers = () => {
     const [allUsers, setAllUsers] = useState([])
@@ -21,11 +22,11 @@ const ListOfUsers = () => {
             .then(data => setAllUsers(data.array))
         }
         
-        const User = (props) => {
-            return (
-                <li className='user'>
+    const User = (props) => {
+        return (
+            <Link to={`/User/${props.id}`} className='user'>
                 <p>{props.name + ' from ' + props.country}</p>
-            </li>
+            </Link>
         )
     }
     
@@ -33,7 +34,7 @@ const ListOfUsers = () => {
     return ( 
         <div id='divUsers'>
             <ul>
-                {(allUsers.length > 0) && allUsers.map(user => { return <User name={user.name} country={user.country} />})}
+                {(allUsers.length > 0) && allUsers.map((user, key) => { return <User key={key} name={user.name} country={user.country} id={user.id}/>})}
             </ul> 
         </div>
     )
