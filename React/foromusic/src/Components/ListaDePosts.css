@@ -43,17 +43,24 @@
 
 #comments {
   position: absolute;
-  color: #f53240;
+  color: #832329;
   text-decoration: underline;
   cursor: pointer;
-  left: 7%;
+  right: 5%;
   bottom: 10px;
+  background-color: #f5323f;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#comments:hover {
+  transform: scale(1.25);
 }
 
 #firm {
   position: absolute;
   font-size: 15px;
   text-decoration: underline;
-  right: 10px;
-  bottom: 0;
+  right: 5%;
+  top: 5%;
 }
