@@ -41,9 +41,9 @@ const Aside = () => {
   const AsideLinks = (props) => {
     return (
       <ul className="linksAside">
-        <AsideLink to='Profile'><DropDown to='Settings' goto='Settings'/><DropDown to='Profile' goto='MyProfile'/><DropDown to='MyPosts' goto='MyPosts'/><DropDown to='Support' goto='Support'/></AsideLink>
-        <AsideLink to='Comunity'><DropDown to='AllUsers' goto='AllUsers' /><DropDown to='TrendingTopic' goto='Trending Topic'/> <DropDown to='Discover' goto='Discover'/></AsideLink>
-        <AsideLink to='Categorys'><DropDown to='Dates' goto='Dates'/><DropDown to='Category' goto='Musical Gender'/></AsideLink>
+        <AsideLink to='Profile'><DropDown to='/Settings' goto='Settings'/><DropDown to='/Profile' goto='MyProfile'/><DropDown to='/MyPosts' goto='MyPosts'/><DropDown to='/Support' goto='Support'/></AsideLink>
+        <AsideLink to='Comunity'><DropDown to='/AllUsers' goto='AllUsers' /><DropDown to='/Trending' goto='Trending'/> <DropDown to='/Discover' goto='Discover'/></AsideLink>
+        <AsideLink to='Categorys'><DropDown to='/Dates' goto='Dates'/><DropDown to='/Category' goto='Musical Gender'/></AsideLink>
       </ul>
     )
   }
@@ -53,7 +53,10 @@ const Aside = () => {
 
     return(
       <>
-        <li className="asidePath" onClick = {() => cambiarOpen(!open)}>{props.to}</li>
+        <li className="asidePath" onClick = {() => {
+          cambiarOpen(!open)
+          setTimeout(() => { cambiarOpen(false)}, 30000)
+        }}>{props.to}</li>
         {open && props.children}
       </>
     )

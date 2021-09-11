@@ -92,6 +92,10 @@ aside {
   text-indent: 10px;
 }
 
+.linksAside li:hover {
+  background-color: #71c8c2;
+}
+
 .asidePath {
   margin-left: 20%;
   padding-top: 5px;
@@ -109,6 +113,11 @@ aside {
   border-radius: 5px;
   margin-bottom: 5px;
   cursor: pointer;
+}
+
+.dropDown:hover {
+  transform: translateX(5px);
+  background-color: #dda901;
 }
 
 .underAside {
