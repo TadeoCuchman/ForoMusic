@@ -7,7 +7,12 @@ const Post = (props) => {
 
     return (
         <div className={` nuevoArticulo ${props.selected ? 'nuevoArticuloExpandido' : ''}`}
-        onClick={() => { if (props.selected) {props.cambiarSelected(-1)} else {props.cambiarSelected(props.id)} }}>
+            onClick={() => { if (props.selected) {
+                props.cambiarSelected(-1)
+                if(props.setSelected){props.setSelected(-1)}
+            } else {
+                    props.cambiarSelected(props.id)
+                    if(props.setSelected){props.setSelected(props.id)}} }}>
             <div className='title'>
                 <h1>{props.album}</h1>
                 <p>Band: {props.band}</p>
@@ -18,7 +23,7 @@ const Post = (props) => {
                  {props.selected && 
                 <>
                     <h3><a href={`${props.link}`} target="_blank" rel="noreferrer">{props.link}</a></h3>
-                    <p>Album date: {props.album_date}</p>
+                    <p>Album date: {props.albumDate}</p>
                     <p>Category: {props.category}</p>
                     <p>{props.description}</p>
                     <div className='comments'>
@@ -58,6 +63,7 @@ const ListaDePosts = (props) => {
                         albumDate={post.album_date}
                         selected={post.id === selected}
                         cambiarSelected={cambiarSelected}
+                        setSelected={ props.setSelected }
                         />
                     )
                 }) }

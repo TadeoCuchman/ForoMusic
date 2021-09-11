@@ -8,7 +8,7 @@
   font-size: 20px;
   margin-top: 60px;
   right: calc(2% + 70px);
-  top: 0%;
+  top: -0.5%;
 }
 
 #sup {
@@ -21,5 +21,5 @@
   font-size: 20px;
   margin-top: 60px;
   right: 2%;
-  top: 0%;
+  top: -0.5%;
 }
