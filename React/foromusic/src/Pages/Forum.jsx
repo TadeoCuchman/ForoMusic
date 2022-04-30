@@ -84,8 +84,10 @@ const Forum = () => {
             <h1>FEED:</h1>
             <ListaDePosts posts={posts} />
 
-            <Numeritos />
-            <BotonAntYSig />
+            <div>
+                <Numeritos />
+                <BotonAntYSig />
+            </div>
             <br />
 
 

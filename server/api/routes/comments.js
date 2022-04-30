@@ -10,7 +10,7 @@ router.get('/:id', async (req, res) => {
     try {
         const PostComments = await pool.query('SELECT comments.id, comment, name, comments.date FROM posts INNER JOIN comments ON comments.post_id = $1 AND posts.id = $1 JOIN users ON users.id = comments.user_id', [req.params.id])
         const array = PostComments.rows
-        console.log(array)
+       
         return res.json({ success: true, array }).status(200)
 
     }
@@ -51,7 +51,6 @@ router.delete('/:id', verifyToken, async (req, res) => {
         
         const user = await pool.query('SELECT * FROM users INNER JOIN comments ON users.id = $1 AND comments.id = $2', [req.user.id, req.params.id])
         array = user.rows
-        console.log(array)
         if (array) {
             await pool.query('DELETE FROM comments WHERE id = $1', [req.params.id])
             return res.json({ success:true, message:'Comment Deleted Successfully'}).status(200)

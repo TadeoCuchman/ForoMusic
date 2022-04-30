@@ -29,11 +29,11 @@
 .numeritos button {
   width: 15px;
   margin-left: 2px;
+  margin-top: 10px;
 }
 
 .antSig {
   display: inline-block;
-  margin-bottom: 10px;
 }
 
 button {

@@ -61,7 +61,6 @@ const MyPosts = () => {
         fetch(`http://localhost:4000/feed/post/${id}`)
             .then(response => response.json())
             .then(data => { setPostToMod(data.array)})
-            console.log(postToMod)
     }
 
 

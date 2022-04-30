@@ -146,10 +146,10 @@ router.post('/', verifyToken, async (req, res) => {
             const newPost = await pool.query('SELECT * FROM posts WHERE album = $1', [album])
             const allPost = await pool.query('SELECT * FROM posts')
 
-            const info = [newPost.rows, allPost.rows]
+            const info = ['New Post:',newPost.rows, allPost.rows]
             
             return res.json({ success: true, message:'Post Successfull', info })
-        }
+        } 
 
         
     } catch (error){
@@ -177,7 +177,7 @@ router.put('/:id', verifyToken, async (req, res) => {
     try {
 
         const changePost = await pool.query('SELECT * FROM posts WHERE id = $1', [req.params.id])
-        array = changePost.rows
+        const array = changePost.rows
         if (array && (req.user.id === array[0].user_id)) { 
             const post = await pool.query('UPDATE posts SET category = $1, link = $2, band = $3, description = $4, album_date= $5 WHERE id = $6', [req.body.category, req.body.link, req.body.band, req.body.description, req.body.album_date,req.params.id])   
         return res.json({ success: true, message:' Successfull update, ', post})
