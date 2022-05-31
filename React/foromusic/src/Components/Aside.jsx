@@ -51,7 +51,7 @@ const Aside = () => {
   const AsideLink = (props) => {
     const [open, cambiarOpen] = useState(false)
 
-    return(
+    return (
       <>
         <li className="asidePath" onClick = {() => {
           cambiarOpen(!open)
@@ -63,7 +63,7 @@ const Aside = () => {
   }
 
   const DropDown = (props) => {
-      return(
+      return (
         <Link className='dropDown' to={props.to}>
           <span>∞{props.goto}</span>
         </Link>)

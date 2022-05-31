@@ -2,7 +2,6 @@ header {
   display: grid;
   grid-area: header;
   position: relative;
-  min-width: 350px;
   text-align: center;
   align-content: center;
   background-color: #7cdbd5;

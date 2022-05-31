@@ -14,6 +14,7 @@ import './Pages/Category.css'
 import './Pages/Settings.css'
 import './Pages/Profile.css'
 import './Pages/Post.css'
+import './Pages/User.css'
 
 
 import ScrollToTop from './Components/ScrollToTop';
@@ -40,6 +41,7 @@ import Post from './Pages/Post'
 import Support from './Pages/Support';
 import Trending from './Pages/Trending'
 import Discover from './Pages/Discover';
+import User from './Pages/User';
 
 import { useState } from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -51,93 +53,98 @@ const App = () => {
     <div className='body'>
       <Router>
         <ScrollToTop />
-        <Nav token= { token } changeToken= { changeToken } />
-        <Header/>
-          <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-
-            <Route path='/Forum'>
-              {token && <Aside/>}
-              <Forum />
-            </Route>
-
-            <Route exact path='/Post/:id'>
-              {token && <Aside/>}
-              <Post />
-            </Route>
-
-            <Route path='/Category'>
-              {token && <Aside/>}
-              <Category />
-            </Route>
-
-            <Route path='/Trending'>
-              {token && <Aside/>}
-              <Trending />
-            </Route>
-            
-            <Route path='/Discover'>
-              {token && <Aside/>}
-              <Discover />
-            </Route>
-            
-
-            <Route path='/Dates' >
-              {token && <Aside/>}
-              <ByDates />
-            </Route>
-
-            <Route path='/Login'>
-              <Login changeToken= { changeToken }/>
-            </Route>
-
-            <Route path='/Register'>
-              <Register />
-            </Route>
-
-            <Route path='/Comunity'>
-              {token  && <Comunity />}
-              {token && <Aside />}
-            </Route>
-
-            <Route path='/AllUsers'>
-              {token && <AllUsers />}
-              {token && <Aside />}
-            </Route>
-
-            <Route path='/Profile'>
-              {token  && <Profile />} 
-              {token && <Aside />}
-            </Route>
-
-            <Route path='/Settings'>
-            {token  && <Settings />}
+        <Nav token={token} changeToken={changeToken} />
+        <Header />
+        <Switch>
+          <Route exact path='/'>
+            <Home />
             {token && <Aside />}
-            </Route>
+          </Route>
 
-            <Route path='/MyPosts'>
-              {token && <MyPosts />}
-              {token && <Aside />}
-            </Route>
+          <Route path='/Forum'>
+            {token && <Aside />}
+            <Forum token={token} />
+          </Route>
 
-            <Route path='/Support'>
-              {token && <Support />}
-              {token && <Aside />}
-            </Route>
+          <Route exact path='/Post/:id'>
+            {token && <Aside />}
+            <Post />
+          </Route>
 
-            <Route path='/Contact'>
-              <Contact />
-            </Route>
+          <Route path='/Category'>
+            {token && <Aside />}
+            <Category />
+          </Route>
 
-            <Route path='/AboutUs'>
-              <AboutUs />
-            </Route>
+          <Route path='/Trending'>
+            {token && <Aside />}
+            <Trending />
+          </Route>
 
-          </Switch>
-          <ScrollToTop />
-        <Footer/>
+          <Route path='/Discover'>
+            {token && <Aside />}
+            <Discover />
+          </Route>
+
+
+          <Route path='/Dates' >
+            {token && <Aside />}
+            <ByDates />
+          </Route>
+
+          <Route path='/Login'>
+            <Login changeToken={changeToken} />
+          </Route>
+
+          <Route path='/Register'>
+            <Register />
+          </Route>
+
+          <Route path='/Comunity'>
+            {token && <Comunity />}
+            {token && <Aside />}
+          </Route>
+
+          <Route path='/AllUsers'>
+            {token && <AllUsers />}
+            {token && <Aside />}
+          </Route>
+
+          <Route path='/Profile'>
+            {token && <Profile />}
+            {token && <Aside />}
+          </Route>
+
+          <Route path='/Settings'>
+            {token && <Settings />}
+            {token && <Aside />}
+          </Route>
+
+          <Route path='/MyPosts'>
+            {token && <MyPosts />}
+            {token && <Aside />}
+          </Route>
+
+          <Route path='/Support'>
+            {token && <Support />}
+            {token && <Aside />}
+          </Route>
+
+          <Route path='/Contact'>
+            <Contact />
+          </Route>
+
+          <Route path='/AboutUs'>
+            <AboutUs />
+          </Route>
+
+          <Route path='/User/:id'>
+            <User />
+          </Route>
+
+        </Switch>
+        <ScrollToTop />
+        <Footer />
       </Router>
     </div>
   );

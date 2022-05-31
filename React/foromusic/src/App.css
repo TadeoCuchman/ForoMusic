@@ -1,23 +1,25 @@
+
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
   font-family: WildWest;
 }
+
 body {
   background-color: #7cdbd5;
 }
 
 .body {
   display: grid;
+  position: relative;
   grid-template-areas:
-    "aside header"
-    "aside main"
-    "aside footer";
-  grid-template-columns: 1px auto;
-  grid-template-rows: 200px 94% 30px;
-  min-height: 100vh;
-  max-height: 100%;
+    "header"
+    "main"
+    "footer";
+  grid-template-columns: auto;
+  grid-template-rows: 200px auto 30px;
+  height: 99.9vh;
   max-width: 100vw;
   background-color: #f53240;
 }
@@ -61,4 +63,11 @@ button:hover {
   border-style: none;
   height: 25px;
   background-color: rgb(243, 243, 243);
+}
+
+@media (max-width: 550px){
+    h1{
+      padding-top: 50px;
+    }
+
 }
