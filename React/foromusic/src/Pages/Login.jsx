@@ -31,7 +31,8 @@ const Login = (props) => {
           props.changeToken(localStorage.jwt);
           history.push("/");
         }
-      });
+      }).catch((err) => { console.log('Network not working', err); });
+
   };
 
   return (

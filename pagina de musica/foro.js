@@ -128,12 +128,12 @@ botonSubmit.addEventListener("click", () => {
 //no pude implementar bien el delete, 
 BotonDelete.addEventListener("click", function(){
        fetch('http://localhost:4000/feed', {
-              method: "POST",
+              method: "DELETE",
               headers: {
                      "Content-Type" : "application/json",
                      "auth-token" : localStorage.getItem("jwt")
               },
-              body: JSON.stringify(postBody)
+              body: JSON.stringify(id)
        })
        render()       
 })

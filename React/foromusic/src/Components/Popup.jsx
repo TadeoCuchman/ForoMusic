@@ -18,7 +18,7 @@ const Popup = (props) => {
             link,
             album,
             band,
-            description,
+            description,    
             album_date
         }
         
@@ -37,7 +37,7 @@ const Popup = (props) => {
             }).then(() => { 
                 props.cargarPosts() 
                 props.setMostrar(false)
-            })
+            }).catch((err) => { console.log('Network not working', err); });
     }
 
 
@@ -61,14 +61,14 @@ const Popup = (props) => {
               body: JSON.stringify(postBody)
         }).then(function(respuesta) {
             return respuesta.json()
-        }).then(function (res) {
+        }).then(function(res) {
             if (!res.succes) {
                 alert (res.message);
             }
         }).then(() => { 
             props.cargarPosts() 
             props.setMostrar(false)
-        })
+        }).catch((err) => { console.log('Network not working', err); });
     }
 
     return (props.mostrar) ? (

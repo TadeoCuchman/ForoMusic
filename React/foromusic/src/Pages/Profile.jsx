@@ -12,6 +12,9 @@ const Profile = () => {
                <br />
                <p>Profile: {localStorage.alias}</p> 
                <div>
+                   <span>photo</span>
+                   <span>changephoto</span>
+                   <br />
                    
                </div>
                <div>

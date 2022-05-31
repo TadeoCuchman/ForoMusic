@@ -29,7 +29,7 @@ const Register = () => {
             },
             body: JSON.stringify(newUser)
           }).then(function(respuesta) {
-              return respuesta.json();
+              return respuesta.json()
           }).then(function (res) {
               if (res.success === false) {
                   alert (res.message);
@@ -37,7 +37,8 @@ const Register = () => {
                   alert (res.message);
                   history.push('/Login')                  
               }
-            })
+            }).catch((err) => { console.log('Network not working', err); });
+
     }
     
     return (

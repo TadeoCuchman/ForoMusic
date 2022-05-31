@@ -1,77 +1,90 @@
-import React from 'react';
-import {useState} from 'react';
+import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-
 
 const Post = (props) => {
 
-    return (
-        <div className={` nuevoArticulo ${props.selected ? 'nuevoArticuloExpandido' : ''}`}
-            onClick={() => { if (props.selected) {
-                props.cambiarSelected(-1)
-                if(props.setSelected){props.setSelected(-1)}
-            } else {
-                    props.cambiarSelected(props.id)
-                    if(props.setSelected){props.setSelected(props.id)}} }}>
-            <div className='title'>
-                <h1>{props.album}</h1>
-                <p>Band: {props.band}</p>
+  return (
+    <div
+      className={` nuevoArticulo ${
+        props.selected ? "nuevoArticuloExpandido" : ""
+      }`}
+      onClick={() => {
+        if (props.selected) {
+          props.cambiarSelected(-1);
+          if (props.setSelected) {
+            props.setSelected(-1);
+          }
+        } else {
+          props.cambiarSelected(props.id);
+          if (props.setSelected) {
+            props.setSelected(props.id);
+          }
+        }
+      }}
+    >
+      <div className="title">
+        <h1>{props.album}</h1>
+        <p>Band: {props.band}</p>
+      </div>
+
+      <div className="info">
+        {props.selected && (
+          <>
+            <h3 className="linkSong">
+              <a href={`${props.link}`} target="_blank" rel="noreferrer">
+                {props.link}
+              </a>
+            </h3>
+            <p>Album date: {props.albumDate? props.albumDate.substring(0, 10) : ''}</p>
+            <p>Category: {props.category}</p>
+            <p>{props.description}</p>
+            <div className="comments">
+              <Link to={`/Post/${props.id}`} id="comments">
+                Comments
+              </Link>
             </div>
-           
-            <div className='info'>
-            
-                 {props.selected && 
-                <>
-                    <h3><a href={`${props.link}`} target="_blank" rel="noreferrer">{props.link}</a></h3>
-                    <p>Album date: {props.albumDate}</p>
-                    <p>Category: {props.category}</p>
-                    <p>{props.description}</p>
-                    <div className='comments'>
-                        <Link to={`/Post/${props.id}`} id='comments' >Comments</Link>    
-                    </div>        
-                    <Link id='firm' to={`/User/${props.user_id}`}>{props.firm}</Link>
-                 </>}
-            </div>
-           
-                
-            
-            
-            
-            
-        </div>
-    )
-}
+            <Link id="firm" to={`/User/${props.user_id}`}>
+              {props.firm}
+            </Link>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const ListaDePosts = (props) => {
-    const posts = props.posts
-    const [selected, cambiarSelected] = useState(-1)
+  const posts = props.posts;
+  const [selected, cambiarSelected] = useState(-1);
 
-    if (posts){
-        return (
-            <div id='feed'>
-                { posts.map((post) => {
-                    return ( <Post
-                        id={post.id}
-                        user_id={post.user_id}
-                        key={post.id}
-                        category={post.category} 
-                        link={post.link}
-                        album={post.album}
-                        band={post.band}
-                        description={post.description}
-                        firm={post.firm}
-                        albumDate={post.album_date}
-                        selected={post.id === selected}
-                        cambiarSelected={cambiarSelected}
-                        setSelected={ props.setSelected }
-                        />
-                    )
-                }) }
-            </div>
-        )
-    } else { return [] }
-}
-
-
+  if (posts) {
+    return (
+      <div id="feed">
+        {posts.map((post) => {
+          return (
+            <Post
+              id={post.id}
+              user_id={post.user_id}
+              key={post.id}
+              category={post.category}
+              link={post.link}
+              album={post.album}
+              band={post.band}
+              description={post.description}
+              firm={post.firm}
+              albumDate={post.album_date}
+              selected={post.id === selected}
+              cambiarSelected={cambiarSelected}
+              setSelected={props.setSelected}
+            />
+          );
+        })}
+      </div>
+    );
+  } else {
+    return [];
+  }
+};
 
 export default ListaDePosts;

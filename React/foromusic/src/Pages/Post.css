@@ -26,6 +26,8 @@
   overflow: hidden;
 }
 
+
+
 .comments {
   display: grid;
   grid-template-areas:
@@ -113,4 +115,15 @@
 .date {
   font-size: 10px;
   margin-left: 50%;
+}
+
+.linkSong {
+  margin: 20px;
+  padding: 10px;
+}
+
+.linkSong:hover {
+  background-color: rgba(96, 96, 96, 0.312);
+  border-radius: 5px;
+
 }
